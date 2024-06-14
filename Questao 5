@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+void insercao(int arr[], int n) {
+    int i, chave, j;
+    for (i = 1; i < n; i++) {
+        chave = arr[i];
+        j = i - 1;
+
+        while (j >= 0 && arr[j] > chave) {
+            arr[j + 1] = arr[j];
+            j = j - 1;
+        }
+        arr[j + 1] = chave;
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int L[] = {82, 50, 71, 63, 85, 43, 39, 97, 14};
+    int n = sizeof(L) 
+
+    printf("Original array:\n");
+    printArray(L, n);
+
+    insercao(L, n);
+
+    printf("Sorted array using insertion sort:\n");
+    printArray(L, n);
+
+    return 0;
+}
