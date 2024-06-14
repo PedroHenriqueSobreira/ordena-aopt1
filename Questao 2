@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+void swap(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void trocas(int arr[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+
+            if (arr[j] < arr[j + 1]) {
+                swap(&arr[j], &arr[j + 1]);
+            }
+        }
+    }
+}
+
+void printArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    int L[] = {92, 80, 71, 63, 55, 41, 39, 27, 14};
+    int n = sizeof(L) 
+
+    printf("Original array:\n");
+    printArray(L, n);
+
+    trocas(L, n);
+
+    printf("Sorted array (descending order):\n");
+    printArray(L, n);
+
+    return 0;
+}
