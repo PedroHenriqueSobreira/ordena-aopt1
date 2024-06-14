@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+
+void swapStrings(char** a, char** b) {
+    char* temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void selecaoStrings(char* arr[], int n) {
+    int i, j, min_idx;
+
+    for (i = 0; i < n - 1; i++) {
+
+        min_idx = i;
+        for (j = i + 1; j < n; j++) {
+
+            if (strcmp(arr[j], arr[min_idx]) < 0) {
+                min_idx = j;
+            }
+        }
+
+        swapStrings(&arr[min_idx], &arr[i]);
+    }
+}
+
+void printStringArray(char* arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%s ", arr[i]);
+    }
+    printf("\n");
+}
+
+int main() {
+    char* L[] = {"banana", "apple", "orange", "pear", "grape"};
+    int n = sizeof(L)
+
+    printf("Original string array:\n");
+    printStringArray(L, n);
+
+    selecaoStrings(L, n);
+
+    printf("Sorted string array using selection sort:\n");
+    printStringArray(L, n);
+
+    return 0;
+}
